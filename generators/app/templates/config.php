@@ -3,9 +3,9 @@
 require_once(INCLUDE_DIR.'/class.plugin.php');
 require_once(INCLUDE_DIR.'/class.forms.php');
 
-class {{ plugin_name }} extends PluginConfig{
+class <%= pluginName %> extends PluginConfig{
  function getOptions() {
- return array({{ options }}),
+ return array(<%= fields %>),
  );
  }
 
