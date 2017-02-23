@@ -1,0 +1,21 @@
+<?php
+
+require_once(INCLUDE_DIR.'/class.plugin.php');
+require_once(INCLUDE_DIR.'/class.forms.php');
+
+class {{ plugin_name }} extends PluginConfig{
+ function getOptions() {
+ return array({{ options }}),
+ );
+ }
+
+ function pre_save(&$config, &$errors) {
+ global $msg;
+
+if (!$errors)
+ $msg = 'Configuration updated successfully';
+
+return true;
+ }
+}
+?>
