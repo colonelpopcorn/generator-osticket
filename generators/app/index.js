@@ -28,8 +28,13 @@ module.exports = Generator.extend({
     },
     {
       name: 'url',
-      message: 'Where can we find you on the web?',
-      default: 'https://myawesomeplugin.com'
+      message: 'Where can we find your plugin on the web?',
+      default: ''
+    },
+    {
+      name: 'githubUsername',
+      message: 'What\'s your github username?',
+      default: '' //blank for now.
     }
   ];
 
@@ -44,24 +49,32 @@ module.exports = Generator.extend({
       this.templatePath('config.php'),
       this.destinationPath(this.props.pluginName + '/config.php'),
       {
-        pluginName: this.props.pluginName + 'Config',
-        fields: '\'id\' \=\> \'colonelpopcorn\'' + '\:' + this.props.pluginName
+        pluginName: this.props.pluginName + 'Config'
       });
+
       this.fs.copyTpl(
         this.templatePath('plugin.php'),
         this.destinationPath(this.props.pluginName + '/plugin.php'),
         {
           description: this.props.description,
-          author: 'Jonathan Ling',
-          username: 'colonelpopcorn',
+          author: this.user.git.name(),
+          username: this.props.githubUsername,
           pluginName: this.props.pluginName,
           version: this.props.version,
-          pluginPresentationName: this.props.pluginName.replace(/([A-Z])/g, ' $1') + ' Plugin',
+          pluginPresentationName: this.props.pluginName.replace(/([A-Z])/g, ' $1').trim()
+           + ' Plugin',
           url: this.props.url
+        });
+
+      this.fs.copyTpl(
+        this.templatePath('classfile.php'),
+        this.destinationPath(this.props.pluginName + '/' + this.props.pluginName + '.php'),
+        {
+          author: this.user.git.name(),
+          pluginName: this.props.pluginName
         });
   },
 
   install: function () {
-    this.installDependencies();
   }
 });
