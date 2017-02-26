@@ -1,6 +1,6 @@
 {
   "name": "generator-osticket",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Generate osticket plugin boilerplate",
   "homepage": "https://jonathanling.net",
   "author": {
