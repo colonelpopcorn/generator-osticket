@@ -10,18 +10,19 @@ npm install -g yo
 npm install -g generator-osticket
 ```
 
-Then generate your new project:
+Then generate your new osTicket plugin!:
 
 ```bash
 yo osticket
 ```
 
-## Getting To Know Yeoman
+## TODO
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+* Make a scripts folder to store SQL queries to set up the tables.
+* Make a JS file to handle any ajax code.
+* Make a script to replace vanilla osTicket code.
+* Post-generation hooks
+
 
 ## License
 

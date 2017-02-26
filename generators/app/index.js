@@ -49,7 +49,7 @@ module.exports = Generator.extend({
       this.templatePath('config.php'),
       this.destinationPath(this.props.pluginName + '/config.php'),
       {
-        pluginName: this.props.pluginName + 'Config'
+        pluginName: this.props.pluginName
       });
 
       this.fs.copyTpl(
